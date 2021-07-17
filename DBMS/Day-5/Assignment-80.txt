@@ -22,3 +22,12 @@ AND C.CUSTID=P.CUSTID
 AND ITEMTYPE='FMCG'
 
 The above query doesnot map the itemcodes with NULL values.
+
+
+select Item.Itemcode,Item.Descr,nvl(Purchasebill.Billamount,0)as Billamount ,nvl(Purchasebill.Custid,0) as Custid
+from Item left join Purchasebill
+on
+Item.Itemcode=Purchasebill.Itemcode
+where Item.Itemtype='FMCG'
+
+your code was helpful after that i made some changes now it satisfies all test cases
